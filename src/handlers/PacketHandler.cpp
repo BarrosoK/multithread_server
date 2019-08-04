@@ -8,6 +8,7 @@
 
 void handlePacket(ReceivablePacket *packet) {
 	int opCode = packet->getOpCode();
+	std::cout << "Packet received with opcode: " << opCode << std::endl;
 	switch (opCode) {
 	case 12:
 		new RequestLogin(packet);
