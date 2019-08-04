@@ -5,8 +5,9 @@
 #ifndef SERVER_CLIENT_H
 #define SERVER_CLIENT_H
 
-#include "ReceivablePacket.h"
 #include "SendablePacket.h"
+
+class ReceivablePacket;
 
 class Client {
 	private:

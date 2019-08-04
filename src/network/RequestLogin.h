@@ -3,14 +3,17 @@
 //
 
 #include "../../inc/ReceivablePacket.h"
+#include "../../inc/SendablePacket.h"
+#include "ExLogin.h"
 
 class RequestLogin: ReceivablePacket {
 	public:
+
 	explicit RequestLogin(ReceivablePacket *packet) : ReceivablePacket(packet->getData(), packet->getClient())
 		{
 			std::string login = readS();
-			std::cout << "login received " << login << std::endl;
-			// getClient()->sendPacket()
+			// 12 -> LOGIN OK (example)
+			getClient()->sendPacket(new ExLogin(12));
 		}
 };
 

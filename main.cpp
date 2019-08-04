@@ -59,6 +59,8 @@ int client_test (int argc, char* argv[])
 	}
 
 	//send stuff to server
+	unsigned char buffer[512];
+	int n;
 	for(;;)
 	{
 		char s[300];
@@ -73,6 +75,8 @@ int client_test (int argc, char* argv[])
 		sendablePacket.writeS("login");
 
 		write(listenFd, sendablePacket.getBuffer(), strlen((char *)sendablePacket.getBuffer()));
+		n = static_cast<int>(recv(listenFd, buffer, sizeof buffer, 0));
+		std::cout << "Received: " << buffer << std::endl;
 	}
 }
 

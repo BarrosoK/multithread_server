@@ -3,6 +3,8 @@
 //
 
 #include <sys/socket.h>
+#include <cstring>
+#include <iostream>
 #include "../inc/Client.h"
 
 int Client::getId()
@@ -31,6 +33,7 @@ void Client::setSocket(int socket)
 
 void Client::sendPacket(SendablePacket *packet)
 {
-	ssize_t n = send(getSocket(), packet->getBuffer(), strlen((char *)packet->getBuffer()), 0);
+	ssize_t n = send(getSocket(), packet->getBuffer(), 512, 0);
 	std::cout << n << " bytes sent." << std::endl;
 }
+

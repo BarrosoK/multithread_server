@@ -39,3 +39,8 @@ void SendablePacket::writeS(std::string data)
 	buffer[position + data.size()] = 0;
 	position = position + (int)data.size() + 1;
 }
+
+unsigned int SendablePacket::getSize()
+{
+	return 512;
+}

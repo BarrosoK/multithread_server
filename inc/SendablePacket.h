@@ -17,6 +17,7 @@ class SendablePacket {
 	SendablePacket();
 	virtual ~SendablePacket();
 	unsigned char *getBuffer();
+	virtual unsigned int getSize();
 	void writeD(int data);
 	void writeC(char data);
 	void writeS(std::string data);

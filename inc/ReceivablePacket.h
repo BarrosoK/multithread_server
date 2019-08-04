@@ -7,8 +7,7 @@
 
 #include <iostream>
 #include <cstring>
-
-class Client;
+#include "Client.h"
 
 class ReceivablePacket {
 	private:
