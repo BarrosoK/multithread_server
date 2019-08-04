@@ -11,9 +11,9 @@ ReceivablePacket::~ReceivablePacket()
 int ReceivablePacket::readD()
 {
 	int result = buffer[pos++] & 0xff;
-	result |= buffer[pos++] << 8 & 0xff00;
-	result |= buffer[pos++] << 0x10 & 0xff0000;
-	result |= buffer[pos++] << 0x18 & 0xff000000;
+	result |= (buffer[pos++] & 0xffL) << 8;
+	result |= (buffer[pos++] & 0xffL) << 16;
+	result |= (buffer[pos++] & 0xffL) << 24;
 	return result;
 }
 
