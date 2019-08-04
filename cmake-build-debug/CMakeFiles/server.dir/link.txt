@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/server.dir/main.cpp.o CMakeFiles/server.dir/src/Server.cpp.o CMakeFiles/server.dir/src/Client.cpp.o CMakeFiles/server.dir/src/handlers/ClientHandler.cpp.o CMakeFiles/server.dir/src/network/ReceivablePacket.cpp.o CMakeFiles/server.dir/src/network/SendablePacket.cpp.o CMakeFiles/server.dir/src/handlers/PacketHandler.cpp.o  -o server -pthread 
