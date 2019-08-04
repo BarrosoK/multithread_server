@@ -4,7 +4,7 @@
 
 #include <strings.h>
 #include <cstring>
-#include "../../inc/SendablePacket.h"
+#include "SendablePacket.h"
 
 SendablePacket::~SendablePacket()
 {

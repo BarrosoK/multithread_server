@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <cstring>
 #include <iostream>
-#include "../inc/Client.h"
+#include "Client.h"
 
 int Client::getId()
 {

@@ -18,7 +18,7 @@
 #include <vector>
 #include <thread>
 #include <regex>
-#include "../inc/Client.h"
+#include "Client.h"
 
 enum SERVER_ERROR_CODE: int {
 	INVALID_PORT = 23,
@@ -43,7 +43,7 @@ class Server {
 	static void lockMutex();
 	static void unlockMutex();
 	static std::vector<std::pair<Client *, std::thread *>> clients;
-
+		static void broadcast(SendablePacket *packet);
 };
 
 

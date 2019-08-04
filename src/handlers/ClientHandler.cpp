@@ -3,9 +3,9 @@
 //
 
 #include <iostream>
-#include "../../inc/Client.h"
-#include "../../inc/Server.h"
-#include "../../inc/ReceivablePacket.h"
+#include "Client.h"
+#include "Server.h"
+#include "ReceivablePacket.h"
 
 void handleClient(Client *client) {
 	bool listening = true;

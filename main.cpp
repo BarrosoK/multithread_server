@@ -1,14 +1,13 @@
 #include <iostream>
 #include <netdb.h>
-#include "inc/Server.h"
-#include "inc/SendablePacket.h"
-#include "inc/ReceivablePacket.h"
+#include "Server.h"
+#include "SendablePacket.h"
+#include "ReceivablePacket.h"
 
 
 int client_test (int argc, char* argv[])
 {
 	int listenFd, portNo;
-	bool loop = false;
 	struct sockaddr_in svrAdd;
 	struct hostent *server;
 
@@ -87,15 +86,6 @@ int main(int ac, char **av)
 		client_test(ac, av);
 		return 0;
 	}
-	/* RECEIVE TEST
-	SendablePacket sendablePacket;
-	sendablePacket.writeD(12);
-	sendablePacket.writeS("login");
-
-	ReceivablePacket receivablePacket(sendablePacket.getBuffer());
-	handlePacket(&receivablePacket);
-	*/
-
 	Server *server = new Server(4242);
 	server->init(true);
 	return 0;

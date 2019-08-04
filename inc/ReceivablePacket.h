@@ -18,12 +18,12 @@ class ReceivablePacket {
 	public:
 		ReceivablePacket(unsigned char *buff, Client *client);
 		virtual ~ReceivablePacket();
+		int getOpCode();
+		Client *getClient();
+		unsigned char *getData();
 		int readD();
 		int readC();
 		std::string readS();
-		int getOpCode();
-		unsigned char *getData();
-		Client *getClient();
 };
 
 #endif //SERVER_RECEIVABLEPACKET_H

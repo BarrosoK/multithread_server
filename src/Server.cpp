@@ -1,6 +1,8 @@
 #include <utility>
 #include <iostream>
-#include "../inc/Server.h"
+#include <Server.h>
+
+#include "Server.h"
 
 //
 // Created by pedrito on 03/08/19.
@@ -95,6 +97,14 @@ void Server::lockMutex()
 void Server::unlockMutex()
 {
 	Server::lock.unlock();
+}
+
+void Server::broadcast(SendablePacket *packet)
+{
+	for (const std::pair<Client *, std::thread *> &c : Server::clients) {
+		Client *client = c.first;
+		client->sendPacket(packet);
+	}
 }
 
 
