@@ -73,7 +73,7 @@ int client_test (int argc, char* argv[])
 		SendablePacket sendablePacket;
 		sendablePacket.writeD(12);
 		sendablePacket.writeS("login");
-
+		sendablePacket.writeS("password");
 		write(listenFd, sendablePacket.getBuffer(), strlen((char *)sendablePacket.getBuffer()));
 		n = static_cast<int>(recv(listenFd, buffer, sizeof buffer, 0));
 		std::cout << "Received: " << buffer << std::endl;

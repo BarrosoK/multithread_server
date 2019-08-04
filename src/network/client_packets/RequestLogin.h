@@ -12,6 +12,7 @@ class RequestLogin: ReceivablePacket {
 	explicit RequestLogin(ReceivablePacket *packet) : ReceivablePacket(packet->getData(), packet->getClient())
 		{
 			std::string login = readS();
+			std::string password = readS();
 			// 12 -> LOGIN OK (example)
 			getClient()->sendPacket(new ExLogin(12));
 		}

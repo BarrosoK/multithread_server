@@ -11,6 +11,7 @@ class ExLogin: public SendablePacket {
 		{
 			writeD(124525); // OPCODE
 			writeD(status);
+			writeS("string test");
 		}
 };
 

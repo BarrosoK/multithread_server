@@ -12,7 +12,7 @@ class SendablePacket {
 	private:
 	unsigned char buffer[BUFFER_SIZE];
 	unsigned int position = 0;
-
+	unsigned int size = 0;
 	public:
 	SendablePacket();
 	virtual ~SendablePacket();

@@ -33,7 +33,7 @@ void Client::setSocket(int socket)
 
 void Client::sendPacket(SendablePacket *packet)
 {
-	ssize_t n = send(getSocket(), packet->getBuffer(), 512, 0);
+	ssize_t n = send(getSocket(), packet->getBuffer(), packet->getSize(), 0);
 	std::cout << n << " bytes sent." << std::endl;
 }
 
