@@ -58,6 +58,7 @@ Client *ReceivablePacket::getClient()
 ReceivablePacket::ReceivablePacket(ReceivablePacket *packet) : buffer(packet->getData()),
 	client(packet->getClient())
 {
+	opCode = readD();
 }
 
 long ReceivablePacket::readQ()
