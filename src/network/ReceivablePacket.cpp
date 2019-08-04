@@ -4,8 +4,6 @@
 
 #include <ReceivablePacket.h>
 
-#include "ReceivablePacket.h"
-
 ReceivablePacket::~ReceivablePacket()
 {
 }

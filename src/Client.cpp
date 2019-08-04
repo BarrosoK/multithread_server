@@ -23,6 +23,7 @@ Client::Client(int socket)
 {
 	id = (long)this;
 	std::cout << "new client " << id << std::endl;
+	// send to the client his id
 	sendPacket(new ExConnection(id));
 }
 

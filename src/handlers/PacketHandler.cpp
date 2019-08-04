@@ -2,10 +2,8 @@
 // Created by pedrito on 03/08/19.
 //
 
-#include <client_packets/RequestMove.h>
 #include "ReceivablePacket.h"
-#include "client_packets/RequestLogin.h"
-#include "SendablePacket.h"
+#include <client_packets/RequestMove.h>
 
 void handlePacket(ReceivablePacket *packet)
 {

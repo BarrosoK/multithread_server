@@ -6,8 +6,6 @@
 #include <cstring>
 #include <SendablePacket.h>
 
-#include "SendablePacket.h"
-
 SendablePacket::~SendablePacket()
 {
 }

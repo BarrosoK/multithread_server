@@ -16,7 +16,7 @@ void handleClient(Client *client) {
 		memset(buffer, 0, sizeof buffer);
 		n = static_cast<int>(recv(client->getSocket(), buffer, sizeof buffer, 0));
 		if(n == 0) {
-			Server::removeClientByThreadId(client);
+			Server::removeClient(client);
 			break;
 		}
 		else if(n < 0) {

@@ -1,6 +1,6 @@
 #include <utility>
 #include <iostream>
-#include "Server.h"
+#include <Server.h>
 
 //
 // Created by pedrito on 03/08/19.
@@ -126,9 +126,17 @@ bool Server::removeClientByThreadId(std::thread::id id)
 	Server::unlockMutex();
 }
 
-bool Server::removeClientByThreadId(Client *client)
+bool Server::removeClient(Client *client)
 {
 	return Server::removeClientByThreadId(client->getThreadId());
+}
+
+Client *Server::findClientById(long id)
+{
+	for (const std::pair<Client *, std::thread *> &c : Server::clients) {
+		if (c.first->getId() == id)
+			return c.first;
+	}
 }
 
 

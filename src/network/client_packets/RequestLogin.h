@@ -2,9 +2,7 @@
 // Created by pedrito on 03/08/19.
 //
 
-#include <Server.h>
 #include "ReceivablePacket.h"
-#include "SendablePacket.h"
 #include "server_packets/ExLogin.h"
 
 class RequestLogin: ReceivablePacket {
