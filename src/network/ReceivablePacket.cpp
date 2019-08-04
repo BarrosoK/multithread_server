@@ -2,6 +2,8 @@
 // Created by pedrito on 03/08/19.
 //
 
+#include <ReceivablePacket.h>
+
 #include "ReceivablePacket.h"
 
 ReceivablePacket::~ReceivablePacket()
@@ -54,4 +56,22 @@ unsigned char *ReceivablePacket::getData()
 Client *ReceivablePacket::getClient()
 {
 	return client;
+}
+
+ReceivablePacket::ReceivablePacket(ReceivablePacket *packet)
+: buffer(packet->getData()), client(packet->getClient())
+{
+}
+
+long ReceivablePacket::readQ()
+{
+	long result = buffer[pos++] & 0xff;
+	result |= (buffer[pos++] & 0xffL) << 8;
+	result |= (buffer[pos++] & 0xffL) << 16;
+	result |= (buffer[pos++] & 0xffL) << 24;
+	result |= (buffer[pos++] & 0xffL) << 32;
+	result |= (buffer[pos++] & 0xffL) << 40;
+	result |= (buffer[pos++] & 0xffL) << 48;
+	result |= (buffer[pos++] & 0xffL) << 56;
+	return result;
 }

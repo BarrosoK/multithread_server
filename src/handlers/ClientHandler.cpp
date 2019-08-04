@@ -20,7 +20,7 @@ void handleClient(Client *client) {
 			break;
 		}
 		else if(n < 0) {
-			std::cerr << "Error while receiving message from client: " << std::endl;
+			std::cerr << "Error while receiving message from client" << std::endl;
 		}
 		else {
 			ReceivablePacket packet(buffer, client);

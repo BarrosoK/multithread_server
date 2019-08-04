@@ -10,7 +10,7 @@
 class RequestLogin: ReceivablePacket {
 	public:
 
-	explicit RequestLogin(ReceivablePacket *packet) : ReceivablePacket(packet->getData(), packet->getClient())
+	explicit RequestLogin(ReceivablePacket *packet) : ReceivablePacket(packet)
 		{
 			std::string login = readS();
 			std::string password = readS();

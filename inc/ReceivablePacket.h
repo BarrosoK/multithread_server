@@ -15,6 +15,8 @@ class ReceivablePacket {
 		unsigned int pos = 0;
 		int opCode;
 		Client *client;
+	protected:
+		ReceivablePacket(ReceivablePacket *pPacket);
 	public:
 		ReceivablePacket(unsigned char *buff, Client *client);
 		virtual ~ReceivablePacket();
@@ -24,6 +26,7 @@ class ReceivablePacket {
 		int readD();
 		int readC();
 		std::string readS();
+		long readQ();
 };
 
 #endif //SERVER_RECEIVABLEPACKET_H

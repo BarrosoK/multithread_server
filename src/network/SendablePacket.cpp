@@ -4,6 +4,8 @@
 
 #include <strings.h>
 #include <cstring>
+#include <SendablePacket.h>
+
 #include "SendablePacket.h"
 
 SendablePacket::~SendablePacket()
@@ -21,7 +23,7 @@ void SendablePacket::writeD(int data)
 	buffer[position++] |= data >> 8 & 0xff;
 	buffer[position++] |= data >> 16 & 0xff;
 	buffer[position++] |= data >> 24 & 0xff;
-	size +=4;
+	size += 4;
 }
 
 unsigned char *SendablePacket::getBuffer()
@@ -46,4 +48,20 @@ void SendablePacket::writeS(std::string data)
 unsigned int SendablePacket::getSize()
 {
 	return size;
+}
+
+/*
+ * Long
+ */
+void SendablePacket::writeQ(long data)
+{
+	buffer[position++] |= (int) (data & 0xff);
+	buffer[position++] |= (int) (data >> 8 & 0xff);
+	buffer[position++] |= (int) (data >> 16 & 0xff);
+	buffer[position++] |= (int) (data >> 24 & 0xff);
+	buffer[position++] |= (int) (data >> 32 & 0xff);
+	buffer[position++] |= (int) (data >> 40 & 0xff);
+	buffer[position++] |= (int) (data >> 48 & 0xff);
+	buffer[position++] |= (int) (data >> 56 & 0xff);
+	size += 8;
 }

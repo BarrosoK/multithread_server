@@ -5,9 +5,10 @@
 #include <sys/socket.h>
 #include <cstring>
 #include <iostream>
+#include <server_packets/ExConnection.h>
 #include "Client.h"
 
-int Client::getId()
+long Client::getId()
 {
 	return this->id;
 }
@@ -17,13 +18,12 @@ int Client::getSocket()
 	return this->socket;
 }
 
-Client::Client()
+Client::Client(int socket)
+: socket(socket)
 {
-}
-
-void Client::setId(int id)
-{
-	this->id = id;
+	id = (long)this;
+	std::cout << "new client " << id << std::endl;
+	sendPacket(new ExConnection(id));
 }
 
 void Client::setSocket(int socket)

@@ -12,17 +12,16 @@ class ReceivablePacket;
 
 class Client {
 	private:
-	int id;
-	int socket;
+		long id;
+		int socket;
 		std::thread::id threadId;
 
 	public:
-	Client();
-	int getId();
-	int getSocket();
-	void setId(int id);
-	void setSocket(int socket);
-	void sendPacket(SendablePacket *packet);
+		explicit Client(int socket = 0);
+		long getId();
+		int getSocket();
+		void setSocket(int socket);
+		void sendPacket(SendablePacket *packet);
 		void setThreadId(std::thread::id);
 		std::thread::id getThreadId();
 };

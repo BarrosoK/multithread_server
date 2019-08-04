@@ -21,6 +21,7 @@ class SendablePacket {
 	void writeD(int data);
 	void writeC(char data);
 	void writeS(std::string data);
+	void writeQ(long data);
 };
 
 #endif //SERVER_SENDABLEPACKET_H

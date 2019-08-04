@@ -55,19 +55,15 @@ int Server::start()
 		socklen_t cliSize = sizeof(sockaddr_in);
 		while(running)
 		{
-			Client *c = new Client();
-
 			// Accept new client
 			int fd = accept(serverSocket, (struct sockaddr *) &clientAddr, &cliSize);
-			c->setSocket(fd);
+			Client *c = new Client(fd);
 			if (fd < 0) {
 				std::cerr << "Error on accept" << std::endl;
 				continue;
 			}
 			Server::lockMutex();
 			std::thread *handler = new std::thread(handleClient, c);
-			//TODO: generate an id for the client
-			// c->setId(XXX)
 			c->setThreadId(handler->get_id());
 			Server::clients.emplace_back(std::make_pair(c, handler));
 			Server::unlockMutex();

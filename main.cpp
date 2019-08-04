@@ -56,10 +56,15 @@ int client_test (int argc, char* argv[])
 		std::cerr << "Cannot connect!" << std::endl;
 		return 0;
 	}
-
-	//send stuff to server
 	unsigned char buffer[512];
 	int n;
+
+
+	n = static_cast<int>(recv(listenFd, buffer, sizeof buffer, 0));
+	ReceivablePacket pa(buffer, NULL);
+	long id  = pa.readQ();
+	std::cout << "id: " << id << std::endl;
+	//send stuff to server
 	for(;;)
 	{
 		char s[300];
