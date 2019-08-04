@@ -2,9 +2,9 @@
 // Created by pedrito on 03/08/19.
 //
 
-#include "../../inc/ReceivablePacket.h"
-#include "../../inc/SendablePacket.h"
-#include "ExLogin.h"
+#include "../../../inc/ReceivablePacket.h"
+#include "../../../inc/SendablePacket.h"
+#include "../server_packets/ExLogin.h"
 
 class RequestLogin: ReceivablePacket {
 	public:

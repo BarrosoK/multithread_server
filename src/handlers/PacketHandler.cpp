@@ -3,7 +3,7 @@
 //
 
 #include "../../inc/ReceivablePacket.h"
-#include "../network/RequestLogin.h"
+#include "../network/client_packets/RequestLogin.h"
 #include "../../inc/SendablePacket.h"
 
 void handlePacket(ReceivablePacket *packet) {
