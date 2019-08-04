@@ -37,3 +37,13 @@ void Client::sendPacket(SendablePacket *packet)
 	std::cout << n << " bytes sent." << std::endl;
 }
 
+void Client::setThreadId(std::thread::id id)
+{
+	threadId = id;
+}
+
+std::thread::id Client::getThreadId()
+{
+	return threadId;
+}
+

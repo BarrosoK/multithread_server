@@ -66,6 +66,9 @@ int Server::start()
 			}
 			Server::lockMutex();
 			std::thread *handler = new std::thread(handleClient, c);
+			//TODO: generate an id for the client
+			// c->setId(XXX)
+			c->setThreadId(handler->get_id());
 			Server::clients.emplace_back(std::make_pair(c, handler));
 			Server::unlockMutex();
 		}
@@ -103,6 +106,33 @@ void Server::broadcast(SendablePacket *packet)
 		Client *client = c.first;
 		client->sendPacket(packet);
 	}
+}
+
+Client *Server::findClientByThreadId(std::thread::id id)
+{
+	for (const std::pair<Client *, std::thread *> &c : Server::clients) {
+		if (c.second->get_id() == id)
+			return c.first;
+	}
+}
+
+bool Server::removeClientByThreadId(std::thread::id id)
+{
+	Server::lockMutex();
+	int index = 0;
+	for (const std::pair<Client *, std::thread *> &c : Server::clients) {
+		if (c.second->get_id() == id) {
+			close(c.first->getSocket());
+			Server::clients.erase(Server::clients.begin() + index);
+		}
+		index++;
+	}
+	Server::unlockMutex();
+}
+
+bool Server::removeClientByThreadId(Client *client)
+{
+	return Server::removeClientByThreadId(client->getThreadId());
 }
 
 

@@ -4,6 +4,7 @@
 
 #ifndef SERVER_SERVER_H
 #define SERVER_SERVER_H
+
 #include <netinet/in.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -20,31 +21,34 @@
 #include <regex>
 #include "Client.h"
 
-enum SERVER_ERROR_CODE: int {
+enum SERVER_ERROR_CODE : int {
 	INVALID_PORT = 23,
 	LISTEN_ERROR = 24
 };
 
-
 class Server {
 	private:
-	int port;
-	std::string addr;
-	bool running;
-	int serverSocket;
-	struct sockaddr_in serverAddr, clientAddr;
-	unsigned int maxConnections;
-	static std::mutex lock;
+		int port;
+		std::string addr;
+		bool running;
+		int serverSocket;
+		struct sockaddr_in serverAddr, clientAddr;
+		unsigned int maxConnections;
+		static std::mutex lock;
 
 	public:
-	Server(int port, unsigned int maxConnections = 50);
-	int init(bool start = false);
-	int start();
-	static void lockMutex();
-	static void unlockMutex();
-	static std::vector<std::pair<Client *, std::thread *>> clients;
-		static void broadcast(SendablePacket *packet);
-};
+		Server(int port, unsigned int maxConnections = 50);
+		int init(bool start = false);
+		int start();
 
+	public:
+		static void lockMutex();
+		static void unlockMutex();
+		static std::vector<std::pair<Client *, std::thread *>> clients;
+		static void broadcast(SendablePacket *packet);
+		static Client *findClientByThreadId(std::thread::id id);
+		static bool removeClientByThreadId(std::thread::id id);
+		static bool removeClientByThreadId(Client *client);
+};
 
 #endif //SERVER_SERVER_H

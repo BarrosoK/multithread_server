@@ -16,7 +16,7 @@ class RequestLogin: ReceivablePacket {
 			std::string password = readS();
 			// 12 -> LOGIN OK (example)
 			// Server::broadcast(new ExLogin(1));
-			// getClient()->sendPacket(new ExLogin(12));
+			getClient()->sendPacket(new ExLogin(12));
 		}
 };
 
