@@ -6,10 +6,10 @@
 #include <server_packets/ExMove.h>
 #include "ReceivablePacket.h"
 
-class RequestMove: ReceivablePacket {
+class RequestMove : ReceivablePacket {
 	public:
 
-	explicit RequestMove(ReceivablePacket *packet) : ReceivablePacket(packet)
+		explicit RequestMove(ReceivablePacket *packet) : ReceivablePacket(packet)
 		{
 			long id = getClient()->getId();
 			int x = readD();

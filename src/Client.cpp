@@ -18,8 +18,7 @@ int Client::getSocket()
 	return this->socket;
 }
 
-Client::Client(int socket)
-: socket(socket)
+Client::Client(int socket) : socket(socket)
 {
 	id = (long)this;
 	std::cout << "new client " << id << std::endl;

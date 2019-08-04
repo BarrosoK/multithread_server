@@ -17,8 +17,7 @@ int ReceivablePacket::readD()
 	return result;
 }
 
-ReceivablePacket::ReceivablePacket(unsigned char *buff, Client *client)
-: client(client)
+ReceivablePacket::ReceivablePacket(unsigned char *buff, Client *client) : client(client)
 {
 	buffer = buff;
 	opCode = readD();
@@ -56,8 +55,8 @@ Client *ReceivablePacket::getClient()
 	return client;
 }
 
-ReceivablePacket::ReceivablePacket(ReceivablePacket *packet)
-: buffer(packet->getData()), client(packet->getClient())
+ReceivablePacket::ReceivablePacket(ReceivablePacket *packet) : buffer(packet->getData()),
+	client(packet->getClient())
 {
 }
 

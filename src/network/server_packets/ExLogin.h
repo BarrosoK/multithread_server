@@ -4,10 +4,10 @@
 
 #include "SendablePacket.h"
 
-class ExLogin: public SendablePacket {
+class ExLogin : public SendablePacket {
 	public:
 
-	explicit ExLogin(int status) : SendablePacket()
+		explicit ExLogin(int status) : SendablePacket()
 		{
 			writeD(124525); // OPCODE
 			writeD(status);

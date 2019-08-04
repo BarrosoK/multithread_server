@@ -4,10 +4,10 @@
 
 #include "SendablePacket.h"
 
-class ExMove: public SendablePacket {
+class ExMove : public SendablePacket {
 	public:
 
-	explicit ExMove(long id, int x, int y) : SendablePacket()
+		explicit ExMove(long id, int x, int y) : SendablePacket()
 		{
 			writeD(15); // OPCODE
 			writeQ(id);

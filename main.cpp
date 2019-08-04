@@ -4,69 +4,61 @@
 #include "SendablePacket.h"
 #include "ReceivablePacket.h"
 
-
-int client_test (int argc, char* argv[])
+int client_test(int argc, char *argv[])
 {
 	int listenFd, portNo;
 	struct sockaddr_in svrAdd;
 	struct hostent *server;
 
-	if(argc < 3)
-	{
-		std::cerr<<"Syntax : ./client <host name> <port>"<<std::endl;
+	if (argc < 3) {
+		std::cerr << "Syntax : ./client <host name> <port>" << std::endl;
 		return 0;
 	}
 
 	portNo = atoi(argv[2]);
 
-	if((portNo > 65535) || (portNo < 2000))
-	{
-		std::cerr<<"Please enter port number between 2000 - 65535"<<std::endl;
+	if ((portNo > 65535) || (portNo < 2000)) {
+		std::cerr << "Please enter port number between 2000 - 65535" << std::endl;
 		return 0;
 	}
 
 	//create client skt
 	listenFd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
-	if(listenFd < 0)
-	{
+	if (listenFd < 0) {
 		std::cerr << "Cannot open socket" << std::endl;
 		return 0;
 	}
 
 	server = gethostbyname(argv[1]);
 
-	if(server == NULL)
-	{
+	if (server == NULL) {
 		std::cerr << "Host does not exist" << std::endl;
 		return 0;
 	}
 
-	bzero((char *) &svrAdd, sizeof(svrAdd));
+	bzero((char *)&svrAdd, sizeof(svrAdd));
 	svrAdd.sin_family = AF_INET;
 
-	bcopy((char *) server->h_addr, (char *) &svrAdd.sin_addr.s_addr, server -> h_length);
+	bcopy((char *)server->h_addr, (char *)&svrAdd.sin_addr.s_addr, server->h_length);
 
 	svrAdd.sin_port = htons(portNo);
 
-	int checker = connect(listenFd,(struct sockaddr *) &svrAdd, sizeof(svrAdd));
+	int checker = connect(listenFd, (struct sockaddr *)&svrAdd, sizeof(svrAdd));
 
-	if (checker < 0)
-	{
+	if (checker < 0) {
 		std::cerr << "Cannot connect!" << std::endl;
 		return 0;
 	}
 	unsigned char buffer[512];
 	int n;
 
-
 	n = static_cast<int>(recv(listenFd, buffer, sizeof buffer, 0));
 	ReceivablePacket pa(buffer, NULL);
-	long id  = pa.readQ();
+	long id = pa.readQ();
 	std::cout << "id: " << id << std::endl;
 	//send stuff to server
-	for(;;)
-	{
+	for (;;) {
 		char s[300];
 		//cin.clear();
 		//cin.ignore(256, '\n');
@@ -78,12 +70,12 @@ int client_test (int argc, char* argv[])
 		sendablePacket.writeD(12);
 		sendablePacket.writeS("login");
 		sendablePacket.writeS("password");
-		write(listenFd, sendablePacket.getBuffer(), strlen((char *)sendablePacket.getBuffer()));
+		write(listenFd, sendablePacket.getBuffer(),
+			strlen((char *)sendablePacket.getBuffer()));
 		n = static_cast<int>(recv(listenFd, buffer, sizeof buffer, 0));
 		std::cout << "Received: " << buffer << std::endl;
 	}
 }
-
 
 int main(int ac, char **av)
 {

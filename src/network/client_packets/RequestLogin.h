@@ -5,10 +5,10 @@
 #include "ReceivablePacket.h"
 #include "server_packets/ExLogin.h"
 
-class RequestLogin: ReceivablePacket {
+class RequestLogin : ReceivablePacket {
 	public:
 
-	explicit RequestLogin(ReceivablePacket *packet) : ReceivablePacket(packet)
+		explicit RequestLogin(ReceivablePacket *packet) : ReceivablePacket(packet)
 		{
 			std::string login = readS();
 			std::string password = readS();

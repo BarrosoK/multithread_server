@@ -53,13 +53,13 @@ unsigned int SendablePacket::getSize()
  */
 void SendablePacket::writeQ(long data)
 {
-	buffer[position++] |= (int) (data & 0xff);
-	buffer[position++] |= (int) (data >> 8 & 0xff);
-	buffer[position++] |= (int) (data >> 16 & 0xff);
-	buffer[position++] |= (int) (data >> 24 & 0xff);
-	buffer[position++] |= (int) (data >> 32 & 0xff);
-	buffer[position++] |= (int) (data >> 40 & 0xff);
-	buffer[position++] |= (int) (data >> 48 & 0xff);
-	buffer[position++] |= (int) (data >> 56 & 0xff);
+	buffer[position++] |= (int)(data & 0xff);
+	buffer[position++] |= (int)(data >> 8 & 0xff);
+	buffer[position++] |= (int)(data >> 16 & 0xff);
+	buffer[position++] |= (int)(data >> 24 & 0xff);
+	buffer[position++] |= (int)(data >> 32 & 0xff);
+	buffer[position++] |= (int)(data >> 40 & 0xff);
+	buffer[position++] |= (int)(data >> 48 & 0xff);
+	buffer[position++] |= (int)(data >> 56 & 0xff);
 	size += 8;
 }
