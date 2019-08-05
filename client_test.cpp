@@ -12,12 +12,12 @@
 void client_recv(int fd)
 {
 	unsigned char buffer[512];
-	int n;
+	ssize_t n;
 
 	while (true) {
 		bzero(buffer, 512);
 
-		n = static_cast<int>(recv(fd, buffer, sizeof buffer, 0));
+		n = (recv(fd, buffer, sizeof buffer, 0));
 		if (n <= 0) {
 			std::cout << "Server error" << std::endl;
 			break;
