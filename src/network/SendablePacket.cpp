@@ -16,6 +16,9 @@ SendablePacket::SendablePacket()
 	bzero(buffer, BUFFER_SIZE);
 }
 
+/*
+ * Int
+ */
 void SendablePacket::writeD(int data)
 {
 	buffer[position++] |= data & 0xff;
@@ -29,6 +32,7 @@ unsigned char *SendablePacket::getBuffer()
 {
 	return buffer;
 }
+
 
 void SendablePacket::writeC(char data)
 {
@@ -65,6 +69,9 @@ void SendablePacket::writeQ(long data)
 	size += 8;
 }
 
+/*
+ * Short
+ */
 void SendablePacket::writeH(short data)
 {
 	buffer[position++] |= data & 0xff;

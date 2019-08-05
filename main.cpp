@@ -3,6 +3,8 @@
 #include "Server.h"
 #include "SendablePacket.h"
 #include "ReceivablePacket.h"
+#include "src/util/Time.h"
+#include "src/util/LoggerFile.h"
 
 int client_test(int argc, char *argv[])
 {
@@ -78,6 +80,9 @@ int client_test(int argc, char *argv[])
 
 int main(int ac, char **av)
 {
+	LoggerFile logger;
+	logger.write("logger test",  " ", 1);
+
 	if (ac > 1) {
 		client_test(ac, av);
 		return 0;
