@@ -39,10 +39,10 @@ class Event {
 
 		void init()
 		{
-			setInterval(b, interval, &Event::start, this);
+			setInterval(b, interval, &Event::run, this);
 		}
 
-		virtual void start() = 0;
+		virtual void run() = 0;
 
 		virtual void stop() {
 			b.store(false);

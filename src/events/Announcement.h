@@ -19,7 +19,7 @@ class Announcement : public Event {
  		 * Called each 60 seconds
 		 * call stop() to end the interval
 		 */
-		void start() override
+		void run() override
 		{
 			std::cout << "test" << std::endl;
 			// Server::broadcast(new Ex...)
