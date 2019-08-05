@@ -4,6 +4,7 @@
 
 #include "ReceivablePacket.h"
 #include <client_packets/RequestMove.h>
+#include <client_packets/RequestDate.h>
 
 void handlePacket(ReceivablePacket *packet)
 {
@@ -11,6 +12,10 @@ void handlePacket(ReceivablePacket *packet)
 	switch (opCode) {
 		case 12: {
 			new RequestMove(packet);
+			break;
+		}
+		case OP_REQUEST_DATE: {
+			new RequestDate(packet);
 			break;
 		}
 		default: {

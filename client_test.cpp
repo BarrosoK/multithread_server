@@ -31,6 +31,11 @@ void client_recv(int fd)
 				std::cout << "Server sent you a msg: " << msg << std::endl;
 				break;
 			}
+			case OP_DATE: {
+				std::string date = packet.readS();
+				std::cout << "Server date: " << date << std::endl;
+				break;
+			}
 			default: {
 				break;
 			}
@@ -104,9 +109,8 @@ int client_test(int ac, char **av)
 		bzero(s, 300);
 		std::cin.getline((char *)s, 300);
 		SendablePacket sendablePacket;
-		sendablePacket.writeD(12);
-		sendablePacket.writeD(20);
-		sendablePacket.writeD(34);
+		sendablePacket.writeD(OP_REQUEST_DATE);
+		sendablePacket.writeD(20); // USELESS FOR DATE REQUEST
 		n = write(listenFd, sendablePacket.getBuffer(), sendablePacket.getSize());
 		if (n <= 0) {
 			break;

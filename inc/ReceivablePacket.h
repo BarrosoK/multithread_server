@@ -9,6 +9,11 @@
 #include <cstring>
 #include "Client.h"
 
+enum RECEIVABLE_OPCODE: int {
+	OP_REQUEST_DATE = 29
+};
+
+
 class ReceivablePacket {
 	private:
 		unsigned char *buffer;

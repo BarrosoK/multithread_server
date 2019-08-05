@@ -12,6 +12,7 @@
 enum SENDABLE_OPCODE: int {
 	OP_CONNECTION = 15,
 	OP_SAY = 23,
+	OP_DATE = 25,
 };
 
 class SendablePacket {

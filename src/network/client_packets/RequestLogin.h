@@ -8,6 +8,9 @@
 class RequestLogin : ReceivablePacket {
 	public:
 
+		/*
+		 * NOT WORKING IT IS AN EXAMPLE
+		 */
 		explicit RequestLogin(ReceivablePacket *packet) : ReceivablePacket(packet)
 		{
 			std::string login = readS();
