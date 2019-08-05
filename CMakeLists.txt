@@ -11,8 +11,10 @@ add_executable(server main.cpp src/Server.cpp inc/Server.h src/Client.cpp inc/Cl
         src/network/server_packets/ExLogin.h
         src/network/server_packets/ExConnection.h
         src/network/client_packets/RequestDate.h
+        src/network/client_packets/RequestTime.h
         src/network/server_packets/ExSay.h
         src/network/server_packets/ExDate.h
+        src/network/server_packets/ExTime.h
         src/network/server_packets/ExMove.h
         src/util/LoggerFile.h src/util/Time.h
         inc/Event.h src/events/Announcement.h

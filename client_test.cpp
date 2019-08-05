@@ -109,7 +109,7 @@ int client_test(int ac, char **av)
 		bzero(s, 300);
 		std::cin.getline((char *)s, 300);
 		SendablePacket sendablePacket;
-		sendablePacket.writeD(OP_REQUEST_DATE);
+		sendablePacket.writeD(OP_REQUEST_TIME);
 		sendablePacket.writeD(20); // USELESS FOR DATE REQUEST
 		n = write(listenFd, sendablePacket.getBuffer(), sendablePacket.getSize());
 		if (n <= 0) {

@@ -10,9 +10,9 @@
 #include "Client.h"
 
 enum RECEIVABLE_OPCODE: int {
-	OP_REQUEST_DATE = 29
+	OP_REQUEST_DATE = 29,
+	OP_REQUEST_TIME = 30
 };
-
 
 class ReceivablePacket {
 	private:
