@@ -47,6 +47,10 @@ class Event {
 		virtual void stop() {
 			b.store(false);
 		}
+
+		virtual void start() {
+			b.store(true);
+		}
 };
 
 #endif //SERVER_ANNOUNCEMENTS_H
