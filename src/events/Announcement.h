@@ -16,7 +16,7 @@ class Announcement : public Event {
 
 	public:
 		/*
- 		 * Called each 60 seconds
+ 		 * Called each $interval seconds
 		 * call stop() to end the interval
 		 */
 		void run() override
