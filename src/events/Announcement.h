@@ -15,6 +15,12 @@ class Announcement : public Event {
 		}
 
 	public:
+		void init() override
+		{
+			// Init var here if needed
+			Event::init();
+		}
+
 		/*
  		 * Called each $interval seconds
 		 * call stop() to end the interval

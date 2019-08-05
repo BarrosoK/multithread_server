@@ -37,18 +37,20 @@ class Event {
 			std::thread *handler = new std::thread(&Event::init, this);
 		}
 
-		void init()
+		virtual void init()
 		{
 			setInterval(b, interval, &Event::run, this);
 		}
 
 		virtual void run() = 0;
 
-		virtual void stop() {
+		virtual void stop()
+		{
 			b.store(false);
 		}
 
-		virtual void start() {
+		virtual void start()
+		{
 			b.store(true);
 		}
 };
