@@ -10,7 +10,7 @@
 
 class Announcement : public Event {
 	public:
-		explicit Announcement(int interval = 60000) : Event(interval)
+		explicit Announcement(size_t interval = 1000) : Event(interval)
 		{
 		}
 

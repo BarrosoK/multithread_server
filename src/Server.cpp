@@ -144,7 +144,7 @@ Client *Server::findClientById(long id)
 
 void Server::loadEvents()
 {
-	Announcement(1000);
+	Announcement(60000);
 }
 
 

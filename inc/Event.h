@@ -29,10 +29,10 @@ void setInterval(std::atomic_bool &cancelToken, size_t interval, F &&f, Args &&.
 class Event {
 	private:
 		std::atomic_bool b;
-		int interval;
+		size_t interval;
 
 	public:
-		Event(int interval = 1000) : interval(interval)
+		explicit Event(size_t interval = 1000) : b(false), interval(interval)
 		{
 			std::thread *handler = new std::thread(&Event::init, this);
 		}
