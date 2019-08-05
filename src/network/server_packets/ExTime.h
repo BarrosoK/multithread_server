@@ -13,7 +13,7 @@ class ExTime : public SendablePacket {
 		 */
 		explicit ExTime() : SendablePacket()
 		{
-			writeD(OP_DATE);
+			writeD(OP_TIME);
 			writeS(Time::getTime());
 		}
 };

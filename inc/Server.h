@@ -49,6 +49,7 @@ class Server {
 		static std::vector<std::pair<Client *, std::thread *>> clients;
 		static LoggerFile logger;
 		static void broadcast(SendablePacket *packet);
+		static void broadcastToOther(Client *client, SendablePacket *packet);
 		static Client *findClientByThreadId(std::thread::id id);
 		static Client *findClientById(long id);
 		static bool removeClientByThreadId(std::thread::id id);

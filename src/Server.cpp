@@ -1,6 +1,8 @@
 #include <utility>
 #include <iostream>
 #include <Server.h>
+#include <server_packets/ExDisconnect.h>
+#include <server_packets/ExClient.h>
 #include "events/Announcement.h"
 
 //
@@ -69,6 +71,7 @@ int Server::start()
 			std::thread *handler = new std::thread(handleClient, c);
 			c->setThreadId(handler->get_id());
 			Server::clients.emplace_back(std::make_pair(c, handler));
+			Server::broadcastToOther(c, new ExClient(c));
 			Server::unlockMutex();
 		}
 		for (auto &t: Server::clients) {
@@ -121,6 +124,7 @@ bool Server::removeClientByThreadId(std::thread::id id)
 	int index = 0;
 	for (const std::pair<Client *, std::thread *> &c : Server::clients) {
 		if (c.second->get_id() == id) {
+			Server::broadcastToOther(c.first, new ExDisconnect(c.first));
 			close(c.first->getSocket());
 			Server::clients.erase(Server::clients.begin() + index);
 		}
@@ -145,6 +149,16 @@ Client *Server::findClientById(long id)
 void Server::loadEvents()
 {
 	Announcement(60000);
+}
+
+void Server::broadcastToOther(Client *sender, SendablePacket *packet)
+{
+	for (const std::pair<Client *, std::thread *> &c : Server::clients) {
+		Client *client = c.first;
+		if (sender->getId() != client->getId()) {
+			client->sendPacket(packet);
+		}
+	}
 }
 
 

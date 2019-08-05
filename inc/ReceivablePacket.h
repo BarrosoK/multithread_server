@@ -10,6 +10,7 @@
 #include "Client.h"
 
 enum RECEIVABLE_OPCODE: int {
+	OP_REQUEST_OTHER = 5,
 	OP_REQUEST_DATE = 29,
 	OP_REQUEST_TIME = 30
 };

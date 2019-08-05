@@ -4,7 +4,6 @@
 
 #include <server_packets/ExDate.h>
 #include "ReceivablePacket.h"
-#include "server_packets/ExLogin.h"
 
 class RequestDate : ReceivablePacket {
 	public:

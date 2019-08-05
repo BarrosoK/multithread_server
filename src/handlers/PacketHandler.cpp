@@ -3,14 +3,18 @@
 //
 
 #include "ReceivablePacket.h"
-#include <client_packets/RequestMove.h>
 #include <client_packets/RequestDate.h>
 #include <client_packets/RequestTime.h>
+#include <client_packets/RequestOther.h>
 
 void handlePacket(ReceivablePacket *packet)
 {
 	int opCode = packet->getOpCode();
 	switch (opCode) {
+		case OP_REQUEST_OTHER: {
+			new RequestOther(packet);
+			break;
+		}
 		case OP_REQUEST_DATE: {
 			new RequestDate(packet);
 			break;
