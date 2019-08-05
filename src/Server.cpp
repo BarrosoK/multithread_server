@@ -1,6 +1,7 @@
 #include <utility>
 #include <iostream>
 #include <Server.h>
+#include "events/Announcement.h"
 
 //
 // Created by pedrito on 03/08/19.
@@ -35,6 +36,7 @@ int Server::init(bool start)
 	serverAddr.sin_addr.s_addr = INADDR_ANY;
 	//Set all bits of the padding field to 0
 	memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);
+	loadEvents();
 	if (start) {
 		this->start();
 	}
@@ -138,6 +140,11 @@ Client *Server::findClientById(long id)
 		if (c.first->getId() == id)
 			return c.first;
 	}
+}
+
+void Server::loadEvents()
+{
+	Announcement(1000);
 }
 
 

@@ -36,6 +36,7 @@ class Server {
 		struct sockaddr_in serverAddr, clientAddr;
 		unsigned int maxConnections;
 		static std::mutex lock;
+		void loadEvents();
 
 	public:
 		Server(int port, unsigned int maxConnections = 50);

@@ -5,6 +5,8 @@
 #include "ReceivablePacket.h"
 #include "src/util/Time.h"
 #include "src/util/LoggerFile.h"
+#include "Event.h"
+#include "src/events/Announcement.h"
 
 int client_test(int argc, char *argv[])
 {
