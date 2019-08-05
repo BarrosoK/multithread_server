@@ -27,7 +27,7 @@ class Announcement : public Event {
 		}
 
 		void stop() override
-		{Event::stop();
+		{
 			Event::stop();
 			// do aditionnal stuff here if needed
 		}
