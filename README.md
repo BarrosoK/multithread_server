@@ -30,7 +30,7 @@ There are a couple shared run configurations for IntelliJ.
 
 There is also a client function which is REALLY basic and hardcoded. I would recommend you to create your own client aside in order to develop efficiently
 
-A more advanced (but still basic and did for test purpose only) is available [here](https://github.com/BarrosoK/client)
+A more advanced (but still basic and for test purpose only) is available [here](https://github.com/BarrosoK/client)
     
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
