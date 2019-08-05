@@ -73,3 +73,10 @@ long ReceivablePacket::readQ()
 	result |= (buffer[pos++] & 0xffL) << 56;
 	return result;
 }
+
+short ReceivablePacket::readH()
+{
+	int result = (buffer[pos++] & 0xFF);
+	result |= (buffer[pos++] & 0xff) << 8;
+	return (short) result;
+}

@@ -27,6 +27,7 @@ class ReceivablePacket {
 		int readC();
 		std::string readS();
 		long readQ();
+		short readH();
 };
 
 #endif //SERVER_RECEIVABLEPACKET_H

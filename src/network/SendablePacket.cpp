@@ -5,6 +5,7 @@
 #include <strings.h>
 #include <cstring>
 #include <SendablePacket.h>
+#include <iostream>
 
 SendablePacket::~SendablePacket()
 {
@@ -62,4 +63,11 @@ void SendablePacket::writeQ(long data)
 	buffer[position++] |= (int)(data >> 48 & 0xff);
 	buffer[position++] |= (int)(data >> 56 & 0xff);
 	size += 8;
+}
+
+void SendablePacket::writeH(short data)
+{
+	buffer[position++] |= data & 0xff;
+	buffer[position++] |= data >> 8 & 0xff;
+	size += 2;
 }
