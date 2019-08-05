@@ -9,7 +9,7 @@ class ExDate : public SendablePacket {
 	public:
 
 		/*
-		 * Sent on connection
+		 * Send server's date
 		 */
 		explicit ExDate() : SendablePacket()
 		{
