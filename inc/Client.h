@@ -26,7 +26,4 @@ class Client {
 		std::thread::id getThreadId();
 };
 
-void handlePacket(ReceivablePacket *packet);
-void handleClient(Client *client);
-
 #endif //SERVER_CLIENT_H

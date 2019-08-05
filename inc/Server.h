@@ -55,4 +55,7 @@ class Server {
 		static bool removeClient(Client *client);
 };
 
+void handlePacket(ReceivablePacket *packet);
+void handleClient(Client *client);
+
 #endif //SERVER_SERVER_H
