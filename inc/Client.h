@@ -15,6 +15,7 @@ class Client {
 		long id;
 		int socket;
 		std::thread::id threadId;
+		bool connected;
 
 	public:
 		explicit Client(int socket = 0);
@@ -24,6 +25,9 @@ class Client {
 		void sendPacket(SendablePacket *packet);
 		void setThreadId(std::thread::id);
 		std::thread::id getThreadId();
+		void kick(std::string reason);
+		void setConnected(bool value);
+		bool isConnected();
 };
 
 #endif //SERVER_CLIENT_H

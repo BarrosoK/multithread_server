@@ -10,10 +10,11 @@
 #define BUFFER_SIZE 512
 
 enum SENDABLE_OPCODE: int {
+	OP_KICK = 4,
 	OP_CONNECTION = 15,
 	OP_SAY = 23,
 	OP_DATE = 25,
-	OP_TIME = 26
+	OP_TIME = 26,
 };
 
 class SendablePacket {

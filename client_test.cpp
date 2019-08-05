@@ -26,6 +26,11 @@ void client_recv(int fd)
 		int opcode = packet.getOpCode();
 		std::cout << "Received packet (" << n << ")  with opcode: " << opcode << std::endl;
 		switch (opcode) {
+			case OP_KICK: {
+				std::string reason = packet.readS();
+				std::cout << "You got kicked, reason: " << reason << std::endl;
+				break;
+			}
 			case OP_SAY: {
 				std::string msg = packet.readS();
 				std::cout << "Server sent you a msg: " << msg << std::endl;

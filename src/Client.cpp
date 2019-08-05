@@ -6,6 +6,10 @@
 #include <cstring>
 #include <iostream>
 #include <server_packets/ExConnection.h>
+#include <Client.h>
+#include <Server.h>
+#include <server_packets/ExKick.h>
+
 #include "Client.h"
 
 long Client::getId()
@@ -47,3 +51,20 @@ std::thread::id Client::getThreadId()
 	return threadId;
 }
 
+void Client::kick(std::string reason)
+{
+	std::cout << "kicked" << std::endl;
+	connected = false;
+	sendPacket(new ExKick(reason));
+	Server::removeClient(this);
+}
+
+void Client::setConnected(bool value)
+{
+	connected = value;
+}
+
+bool Client::isConnected()
+{
+	return connected;
+}

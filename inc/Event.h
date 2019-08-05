@@ -32,7 +32,7 @@ class Event {
 		size_t interval;
 
 	public:
-		explicit Event(size_t interval = 1000) : b(false), interval(interval)
+		explicit Event(size_t interval = 1000) : interval(interval)
 		{
 			std::thread *handler = new std::thread(&Event::init, this);
 		}
