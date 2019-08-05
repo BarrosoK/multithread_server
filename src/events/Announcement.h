@@ -7,6 +7,7 @@
 #define SERVER_ANNOUNCEMENT_H
 
 #include <Event.h>
+#include <server_packets/ExSay.h>
 
 class Announcement : public Event {
 	public:
@@ -27,8 +28,7 @@ class Announcement : public Event {
 		 */
 		void run() override
 		{
-			std::cout << "test" << std::endl;
-			// Server::broadcast(new Ex...)
+			Server::broadcast(new ExSay("Hello World"));
 			// stop()
 		}
 

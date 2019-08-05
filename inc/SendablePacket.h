@@ -9,6 +9,11 @@
 
 #define BUFFER_SIZE 512
 
+enum SENDABLE_OPCODE: int {
+	OP_CONNECTION = 15,
+	OP_SAY = 23,
+};
+
 class SendablePacket {
 	private:
 		unsigned char buffer[BUFFER_SIZE];

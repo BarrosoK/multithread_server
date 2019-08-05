@@ -12,7 +12,7 @@ class ExConnection : public SendablePacket {
 		 */
 		explicit ExConnection(long id) : SendablePacket()
 		{
-			writeD(13); // OPCODE
+			writeD(OP_CONNECTION); // OPCODE
 			writeQ(id); // id
 		}
 };
