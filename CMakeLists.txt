@@ -13,7 +13,8 @@ add_executable(server main.cpp src/Server.cpp inc/Server.h src/Client.cpp inc/Cl
         src/network/server_packets/ExSay.h
         src/network/server_packets/ExMove.h
         src/util/LoggerFile.h src/util/Time.h
-        inc/Event.h src/events/Announcement.h)
+        inc/Event.h src/events/Announcement.h
+        client_test.cpp)
 target_link_libraries(server Threads::Threads)
 
 
