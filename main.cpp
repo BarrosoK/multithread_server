@@ -80,13 +80,11 @@ int client_test(int argc, char *argv[])
 
 int main(int ac, char **av)
 {
-	LoggerFile logger;
-	logger.write("logger test",  " ", 1);
-
 	if (ac > 1) {
 		client_test(ac, av);
 		return 0;
 	}
+	Server::logger.write("logger test",  "  ", 42);
 	Server *server = new Server(4242);
 	server->init(true);
 	return 0;

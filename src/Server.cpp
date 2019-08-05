@@ -10,6 +10,8 @@ std::mutex Server::lock;
 
 std::vector<std::pair<Client *, std::thread *>> Server::clients;
 
+LoggerFile Server::logger;
+
 Server::Server(int port, unsigned int maxConnections) : port(port), addr(std::move(addr)),
 	maxConnections(maxConnections)
 {

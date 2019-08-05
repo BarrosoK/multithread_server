@@ -3,7 +3,7 @@ project(server)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(inc src/network)
+include_directories(inc src/network src/util)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
