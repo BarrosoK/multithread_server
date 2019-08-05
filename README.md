@@ -11,7 +11,7 @@ Here's the 3 important classes to see in order to create your own protocol
 |   [SendablePacket](https://github.com/BarrosoK/multithread_server/blob/master/src/network/SendablePacket.cpp)       | Packets sent to the client | 
 |   [ReceivablePacket](https://github.com/BarrosoK/multithread_server/blob/master/src/network/ReceivablePacket.cpp)       | Packets received to the client | 
 |   [PacketHandler](https://github.com/BarrosoK/multithread_server/blob/master/src/handlers/PacketHandler.cpp)       | Received packet distribution, you can add here your own packets | 
-
+| [Event](https://github.com/BarrosoK/multithread_server/blob/master/inc/Event.h) | Used to create a class with interval [(example)](https://github.com/BarrosoK/multithread_server/blob/master/src/events/Announcement.h)|
 You can use already existing [packets examples](https://github.com/BarrosoK/multithread_server/blob/master/src/network/client_packets/RequestLogin.h) to understand how it work
 
 
