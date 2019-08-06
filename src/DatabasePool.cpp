@@ -5,8 +5,6 @@
 
 #include <DatabasePool.h>
 
-#include "DatabasePool.h"
-
 DatabasePool::DatabasePool()
 {
 }
@@ -48,7 +46,6 @@ mysqlpp::Connection DatabasePool::getConnection()
 	return conn;
 }
 
-
 void DatabasePool::close(mysqlpp::Connection *conn)
 {
 	this->release(conn);
@@ -70,7 +67,9 @@ mysqlpp::StoreQueryResult DatabasePool::selectFromTable(std::string table, std::
 	return sq;
 }
 
-mysqlpp::StoreQueryResult DatabasePool::selectFromTable(std::string table,  std::string where, std::string columns)
+mysqlpp::StoreQueryResult DatabasePool::selectFromTable(std::string table, std::string where,
+	std::string columns
+)
 {
 	mysqlpp::Connection *con;
 	mysqlpp::StoreQueryResult sq = {};
