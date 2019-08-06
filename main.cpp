@@ -8,12 +8,33 @@
 #include "Event.h"
 #include "src/events/Announcement.h"
 
+#include <mysql.h>
+#include <mysql++.h>
+#include <DatabasePool.h>
 
 void client_test(int ac, char **av);
 
+void test()
+{
+	mysqlpp::StoreQueryResult sq = DatabasePool::getInstance()->selectFromTable("accounts");
+	mysqlpp::StoreQueryResult::iterator it;
+	it = sq.begin();
+	while (it != sq.end()) {
+		mysqlpp::Row row = *it;
+		std::cout << row[1] << " " << row[2] << std::endl;
+		it++;
+	}
+}
 
 int main(int ac, char **av)
 {
+
+	/* DBPOOL TEST
+	for (int i = 0; i < 100; i++) {
+		new std::thread(test);
+	}
+	*/
+
 	if (ac > 1) {
 		client_test(ac, av);
 		return 0;

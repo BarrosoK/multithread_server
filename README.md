@@ -23,6 +23,29 @@ You can use already existing [packets examples](https://github.com/BarrosoK/mult
 * Open it with IntelliJ IDEA
 * You're ready to code !
 
+#### Mysql 
+
+Install the MySQL server by using the Ubuntu package manager:
+
+
+```
+sudo apt-get update
+sudo apt-get install mysql-server
+```
+
+After installation is complete, the mysql_secure_installation utility runs. This utility prompts you to define the mysql root password and other security related options, including removing remote access to the root user and setting the root password.
+
+##### Start the MySQL service
+
+```bash
+systemctl start mysql
+```
+
+##### Launch at reboot
+
+```bash
+systemctl enable mysql
+```
 
 ## Usage
 

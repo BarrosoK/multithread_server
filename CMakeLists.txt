@@ -7,6 +7,14 @@ include_directories(inc src/network src/util)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
+
+SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+
+find_package(MySQL REQUIRED)
+find_package(MySQLPP REQUIRED)
+
+include_directories(${MYSQL_INCLUDE_DIRS} ${MYSQLPP_INCLUDE_DIR})
+
 add_executable(server main.cpp
         src/Server.cpp
         inc/Server.h
@@ -31,7 +39,7 @@ add_executable(server main.cpp
         src/network/server_packets/ExTime.h
         src/util/LoggerFile.h src/util/Time.h
         inc/Event.h src/events/Announcement.h
-        client_test.cpp)
+        client_test.cpp src/DatabasePool.cpp inc/DatabasePool.h inc/Singleton.h)
 target_link_libraries(server Threads::Threads)
-
-
+target_link_libraries(server ${MYSQL_LIBRARIES})
+target_link_libraries(server ${mysqlpp_LIBRARY})
