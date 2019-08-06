@@ -23,7 +23,7 @@ You can use already existing [packets examples](https://github.com/BarrosoK/mult
 * Open it with IntelliJ IDEA
 * You're ready to code !
 
-#### Mysql 
+#### MySQL
 
 Install the MySQL server by using the Ubuntu package manager:
 
@@ -46,6 +46,16 @@ systemctl start mysql
 ```bash
 systemctl enable mysql
 ```
+
+### MySQL Driver connector
+
+Install the MySQL drivers by using the ubuntu package manager: 
+
+```bash
+sudo apt-get install libmysqlcppconn-dev
+```
+
+Or manually [here](https://dev.mysql.com/downloads/connector/cpp/)
 
 ## Usage
 
