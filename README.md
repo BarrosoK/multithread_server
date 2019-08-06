@@ -47,7 +47,7 @@ systemctl start mysql
 systemctl enable mysql
 ```
 
-### MySQL Driver connector
+#### MySQL Driver connector
 
 Install the MySQL drivers by using the ubuntu package manager: 
 
@@ -56,6 +56,17 @@ sudo apt-get install libmysqlcppconn-dev
 ```
 
 Or manually [here](https://dev.mysql.com/downloads/connector/cpp/)
+
+#### QT5
+
+```bash
+sudo apt-get install build-essential qtcreator
+```
+
+If you want QT5 to be your default version you can aswell run this command
+```bash
+sudo apt-get install qt5-default
+```
 
 ## Usage
 

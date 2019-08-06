@@ -18,7 +18,6 @@ namespace Ui {
 class ServerUI : public QMainWindow, public Singleton<ServerUI> {
 	Q_OBJECT
 		friend class Singleton<ServerUI>;
-	public:
 	public slots:
 		void addClient(Client *client);
 	private:
