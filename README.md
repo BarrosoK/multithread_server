@@ -23,7 +23,7 @@ You can use already existing [packets examples](https://github.com/BarrosoK/mult
 * Open it with IntelliJ IDEA
 * You're ready to code !
 
-#### MySQL
+#### MySQL
 
 Install the MySQL server by using the Ubuntu package manager:
 
