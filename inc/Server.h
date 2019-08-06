@@ -19,6 +19,7 @@
 #include <vector>
 #include <thread>
 #include <regex>
+#include <inc/ui/ServerUi.h>
 #include "Client.h"
 #include "LoggerFile.h"
 

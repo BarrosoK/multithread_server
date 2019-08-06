@@ -11,6 +11,9 @@
 #include <mysql.h>
 #include <mysql++.h>
 #include <DatabasePool.h>
+#include <QtWidgets/QApplication>
+#include <QtCore/QStringListModel>
+#include "ui/ServerUi.h"
 
 void client_test(int ac, char **av);
 
@@ -26,9 +29,15 @@ void test()
 	}
 }
 
+
+void createUi(int ac, char **av) {
+	QApplication app(ac, av);
+	ServerUI::getInstance()->show();
+	app.exec();
+}
+
 int main(int ac, char **av)
 {
-
 	/* DBPOOL TEST
 	for (int i = 0; i < 100; i++) {
 		new std::thread(test);
@@ -38,6 +47,8 @@ int main(int ac, char **av)
 	if (ac > 1) {
 		client_test(ac, av);
 		return 0;
+	} else {
+		new std::thread(createUi, ac, av);
 	}
 	Server::logger.write("logger test", "  ", 42);
 	Server *server = new Server(4242);
