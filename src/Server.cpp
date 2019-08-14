@@ -126,6 +126,7 @@ bool Server::removeClientByThreadId(std::thread::id id)
 		if (c.second->get_id() == id) {
 			Server::broadcastToOther(c.first, new ExDisconnect(c.first));
 			close(c.first->getSocket());
+			ServerUI::getInstance()->removeClient(c.first);
 			Server::clients.erase(Server::clients.begin() + index);
 		}
 		index++;

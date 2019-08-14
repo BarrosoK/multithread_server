@@ -9,6 +9,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <inc/Client.h>
+#include <QtCore/QItemSelection>
 #include "Singleton.h"
 
 namespace Ui {
@@ -20,10 +21,14 @@ class ServerUI : public QMainWindow, public Singleton<ServerUI> {
 		friend class Singleton<ServerUI>;
 	public slots:
 		void addClient(Client *client);
+		void removeClient(Client *client);
+		void handleSelectionChange(const QItemSelection& selection);
+		void kickClient();
 	private:
 		explicit ServerUI(QWidget *parent = 0);
 		~ServerUI();
 		Ui::ServerUI *ui;
+		Client *selectedClient;
 };
 
 #endif //SERVER_MAINWINDOW_H

@@ -20,6 +20,9 @@ class ListItem : public QListWidgetItem
 			id = std::to_string(client->getId());
 			setText(id.c_str());
 		}
+		std::string getId() {
+			return id;
+		}
 
 };
 
